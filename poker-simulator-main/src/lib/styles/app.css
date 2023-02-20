@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply flex min-h-screen w-full flex-col items-center justify-start bg-sky-50 pt-4 text-gray-800 antialiased duration-500 dark:bg-gray-900 dark:text-white;
+    font-family: "Poppins", "Noto Sans JP", sans-serif;
+  }
+
+  nav {
+    @apply flex w-full max-w-screen-lg items-center justify-between px-4;
+  }
+
+  main {
+    @apply grow;
+  }
+  dialog:not([open]) {
+    @apply pointer-events-none opacity-0;
+  }
+
+  dialog {
+    @apply fixed top-0 left-0 m-auto grid bg-transparent;
+  }
+  dialog > div {
+    @apply scale-75 opacity-0 duration-200 ease-in-out motion-safe:transition-all motion-reduce:transition-none;
+  }
+  dialog[open] > div {
+    @apply scale-100 opacity-100;
+  }
+
+  dialog::backdrop {
+    @apply backdrop-blur-none duration-500 motion-safe:transition-all motion-reduce:transition-none;
+  }
+
+  dialog[open]::backdrop {
+    @apply backdrop-blur;
+  }
+
+  button {
+    @apply select-none;
+  }
+
+  button > * {
+    cursor: inherit;
+  }
+
+  button:enabled {
+    @apply cursor-pointer;
+  }
+
+  section {
+    @apply flex w-full max-w-screen-lg flex-col items-center px-4;
+  }
+
+  * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .text-fill-none {
+    -webkit-text-fill-color: transparent;
+  }
+}
